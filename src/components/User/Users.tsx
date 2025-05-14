@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
 import type IUsers from '../../interfaces/IUsers'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Home() {
-  const [users, setUsers] = useState<[]>([])
+  const [users, setUsers] = useState<IUsers[]>([])
 
   useEffect(() => {
-    ;(async () => {
-      const response = await fetch('http://localhost:3333/api/v1/users')
-
-      const data = await response.json()
-
-      setUsers(data)
-    })()
+    loadUsers()
   }, [])
+
+  async function loadUsers() {
+    const response = await axios.get('http://localhost:3333/api/v1/users')
+    setUsers(response.data)
+  }
 
   return (
     <>
@@ -23,7 +24,7 @@ function Home() {
           <thead>
             <th>Nome</th>
             <th>Email</th>
-            <th>Action</th>
+            <th></th>
           </thead>
           <tbody>
             {users.map((u: IUsers) => {
@@ -31,6 +32,9 @@ function Home() {
                 <tr key={u.id}>
                   <td>{u.name}</td>
                   <td>{u.email}</td>
+                  <td>
+                    <Link to={`/edit-user/${u.id}`}>EDITAR</Link>
+                  </td>
                 </tr>
               )
             })}

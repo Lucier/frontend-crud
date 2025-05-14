@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Home from './components/Home'
 import Add from './components/User/Add'
-import Edit from './components/User/Edit'
+import { Edit } from './components/User/Edit'
 import Header from './components/Header'
 
 import './global.css'

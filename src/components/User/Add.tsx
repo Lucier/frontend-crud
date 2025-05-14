@@ -21,7 +21,7 @@ function Add() {
     event.preventDefault()
     axios
       .post('http://localhost:3333/api/v1/users/', user)
-      .then(() => navigate('/'))
+      .then(() => navigate('/users'))
       .catch(() => setErrorMessage('Falha ao cadastrar usuário'))
   }
 
