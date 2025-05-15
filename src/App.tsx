@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router-dom'
 
-import Home from './components/Home'
-import Add from './components/User/Add'
-import Search from './components/User/Search'
-import { Edit } from './components/User/Edit'
-import Header from './components/Header'
+import Home from './pages/Home'
 
-import Users from './components/User/Users'
 import GlobalStyle from './styles/global'
+import Header from './components/Header'
+import Add from './pages/User/Add'
+import { Edit } from './pages/User/Edit'
+import Users from './pages/User/Users'
+import Search from './pages/User/Search'
 function App() {
   return (
     <>
