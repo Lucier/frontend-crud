@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import Home from './components/Home'
 import Add from './components/User/Add'
+import Search from './components/User/Search'
 import { Edit } from './components/User/Edit'
 import Header from './components/Header'
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/add-user" element={<Add />} />
         <Route path="/edit-user/:id" element={<Edit />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/search-users" element={<Search />} />
       </Routes>
     </div>
   )

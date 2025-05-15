@@ -6,10 +6,20 @@ import Swal from 'sweetalert2'
 
 function Home() {
   const [users, setUsers] = useState<IUsers[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [filteredUsers, setFilteredUsers] = useState(users)
 
   useEffect(() => {
     loadUsers()
   }, [])
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value)
+    const filtered = users.filter((user) =>
+      user.email.toLowerCase().includes(e.target.value.toLowerCase()),
+    )
+    setFilteredUsers(filtered)
+  }
 
   async function loadUsers() {
     const response = await axios.get('http://localhost:3333/api/v1/users')
@@ -44,6 +54,12 @@ function Home() {
     <>
       <div>
         <h1>USUÁRIOS CADASTRADOS</h1>
+        <input
+          type="text"
+          placeholder="Buscar por e-mail"
+          value={searchQuery}
+          onChange={handleSearch}
+        />
         <table>
           <thead>
             <th>Nome</th>
@@ -51,7 +67,7 @@ function Home() {
             <th></th>
           </thead>
           <tbody>
-            {users.map((u: IUsers) => {
+            {filteredUsers.map((u: IUsers) => {
               return (
                 <tr key={u.id}>
                   <td>{u.name}</td>

@@ -8,6 +8,7 @@ function Navbar() {
       <Link to={'/add-user'}>CADASTRAR USUÁRIO</Link>
       <Link to={'/users'}>USUÁRIOS CADASTRADOS</Link>
       <Link to={'/edit-user/:id'}>EDITAR USUÁRIOS</Link>
+      <Link to={'/search-users'}>BUSCAR USUÁRIOS</Link>
     </div>
   )
 }
