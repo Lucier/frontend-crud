@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { InputStyle } from './styles'
 
 function Add() {
   const [name, setName] = useState('')
@@ -29,19 +30,19 @@ function Add() {
     <div>
       <h2>CADASTRAR USUÁRIO</h2>
       <form>
-        <input
+        <InputStyle
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Nome"
         />
-        <input
+        <InputStyle
           type="email"
           value={email}
           onChange={(e) => setemail(e.target.value)}
           placeholder="Email"
         />
-        <input
+        <InputStyle
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

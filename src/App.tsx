@@ -6,21 +6,23 @@ import Search from './components/User/Search'
 import { Edit } from './components/User/Edit'
 import Header from './components/Header'
 
-import './global.css'
 import Users from './components/User/Users'
-
+import GlobalStyle from './styles/global'
 function App() {
   return (
-    <div>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/add-user" element={<Add />} />
-        <Route path="/edit-user/:id" element={<Edit />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/search-users" element={<Search />} />
-      </Routes>
-    </div>
+    <>
+      <GlobalStyle />
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/add-user" element={<Add />} />
+          <Route path="/edit-user/:id" element={<Edit />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/search-users" element={<Search />} />
+        </Routes>
+      </div>
+    </>
   )
 }
 
