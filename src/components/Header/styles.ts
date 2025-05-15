@@ -26,6 +26,6 @@ export const StyledLink = styled(Link)`
   font-weight: bold;
 
   &:hover {
-    color: #007bff;
+    color: #808080;
   }
 `

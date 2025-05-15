@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { InputStyle } from './styles'
+import { Container, Content, Form, InputStyle } from './styles'
 
 function Add() {
   const [name, setName] = useState('')
@@ -28,30 +28,32 @@ function Add() {
 
   return (
     <div>
-      <h2>CADASTRAR USUÁRIO</h2>
-      <form>
-        <InputStyle
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Nome"
-        />
-        <InputStyle
-          type="email"
-          value={email}
-          onChange={(e) => setemail(e.target.value)}
-          placeholder="Email"
-        />
-        <InputStyle
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Senha"
-        />
-        <button type="submit" onClick={submitForm}>
-          CADASTRAR
-        </button>
-      </form>
+      <Content>
+        <h2>CADASTRAR USUÁRIO</h2>
+        <Container>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Nome"
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Senha"
+          />
+          <button type="submit" onClick={submitForm}>
+            CADASTRAR
+          </button>
+        </Container>
+      </Content>
       <p>{errorMessage}</p>
     </div>
   )

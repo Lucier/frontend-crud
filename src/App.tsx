@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom'
 
 import Home from './pages/Home'
 
-import GlobalStyle from './styles/global'
 import Header from './components/Header'
 import Add from './pages/User/Add'
 import { Edit } from './pages/User/Edit'
 import Users from './pages/User/Users'
 import Search from './pages/User/Search'
+import { GlobalStyle } from './styles/global'
 function App() {
   return (
     <>

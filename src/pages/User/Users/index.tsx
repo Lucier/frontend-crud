@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import type IUsers from '../../interfaces/IUsers'
+import type IUsers from '../../../interfaces/IUsers'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { Container, Content, TableContainer } from './styles'
 
 function Home() {
   const [users, setUsers] = useState<IUsers[]>([])
@@ -42,30 +43,36 @@ function Home() {
 
   return (
     <>
-      <div>
-        <h1>USUÁRIOS CADASTRADOS</h1>
-        <table>
-          <thead>
-            <th>Nome</th>
-            <th>Email</th>
-            <th></th>
-          </thead>
-          <tbody>
-            {users.map((u: IUsers) => {
-              return (
-                <tr key={u.id}>
-                  <td>{u.name}</td>
-                  <td>{u.email}</td>
-                  <td>
-                    <Link to={`/edit-user/${u.id}`}>EDITAR</Link>
-                    <button onClick={() => deleteUser(u.id)}>EXCLUIR</button>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
+      <Container>
+        <Content>
+          <h2>
+            <Link to={'/add-user'}>Novo usuário</Link>
+          </h2>
+        </Content>
+        <TableContainer>
+          <table>
+            <thead>
+              <th>Nome</th>
+              <th>Email</th>
+              <th></th>
+            </thead>
+            <tbody>
+              {users.map((u: IUsers) => {
+                return (
+                  <tr key={u.id}>
+                    <td>{u.name}</td>
+                    <td>{u.email}</td>
+                    <td>
+                      <Link to={`/edit-user/${u.id}`}>EDITAR</Link>
+                      <button onClick={() => deleteUser(u.id)}>EXCLUIR</button>
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </TableContainer>
+      </Container>
     </>
   )
 }
