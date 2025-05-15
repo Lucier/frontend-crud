@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
-// type User = z.infer<typeof User> & { id: string }
-
 export function Edit() {
   const navigate = useNavigate()
   const { id } = useParams()
