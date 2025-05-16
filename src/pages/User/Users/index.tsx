@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { Container, Content, TableContainer } from './styles'
+import { FiEdit, FiTrash2 } from 'react-icons/fi'
 
 function Home() {
   const [users, setUsers] = useState<IUsers[]>([])
@@ -45,9 +46,12 @@ function Home() {
     <>
       <Container>
         <Content>
-          <h2>
-            <Link to={'/add-user'}>Novo usuário</Link>
-          </h2>
+          <div>
+            <h2>
+              <Link to={'/add-user'}>Novo usuário</Link>
+              <Link to={'/search-users'}>Buscar usuários</Link>
+            </h2>
+          </div>
         </Content>
         <TableContainer>
           <table>
@@ -63,8 +67,12 @@ function Home() {
                     <td>{u.name}</td>
                     <td>{u.email}</td>
                     <td>
-                      <Link to={`/edit-user/${u.id}`}>EDITAR</Link>
-                      <button onClick={() => deleteUser(u.id)}>EXCLUIR</button>
+                      <Link to={`/edit-user/${u.id}`}>
+                        <FiEdit size={30} />
+                      </Link>
+                      <button onClick={() => deleteUser(u.id)}>
+                        <FiTrash2 size={30} />
+                      </button>
                     </td>
                   </tr>
                 )

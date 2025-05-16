@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { Container, Content } from './styles'
 
 export function Edit() {
   const navigate = useNavigate()
@@ -40,20 +41,22 @@ export function Edit() {
 
   return (
     <div>
-      <h2>ATUALIZAR DADOS DO USUÁRIO</h2>
-      <form onSubmit={submitHandler}>
-        <input
-          type="text"
-          value={edit.name}
-          onChange={(e) => handleChange(e, 'name')}
-        />
-        <input
-          type="email"
-          value={edit.email}
-          onChange={(e) => handleChange(e, 'email')}
-        />
-        <button type="submit">ATUALIZAR</button>
-      </form>
+      <Content>
+        <h2>ATUALIZAR DADOS DO USUÁRIO</h2>
+        <Container onSubmit={submitHandler}>
+          <input
+            type="text"
+            value={edit.name}
+            onChange={(e) => handleChange(e, 'name')}
+          />
+          <input
+            type="email"
+            value={edit.email}
+            onChange={(e) => handleChange(e, 'email')}
+          />
+          <button type="submit">ATUALIZAR</button>
+        </Container>
+      </Content>
     </div>
   )
 }

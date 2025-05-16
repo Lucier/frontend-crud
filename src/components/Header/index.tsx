@@ -9,17 +9,17 @@ function Header() {
             <StyledLink to={'/'}>HOME</StyledLink>
           </NavItem>
 
-          <NavItem>
+          {/* <NavItem>
             <StyledLink to={'/add-user'}>CADASTRAR USUÁRIO</StyledLink>
-          </NavItem>
+          </NavItem> */}
 
           <NavItem>
-            <StyledLink to={'/users'}>USUÁRIOS CADASTRADOS</StyledLink>
+            <StyledLink to={'/users'}>USUÁRIOS</StyledLink>
           </NavItem>
 
-          <NavItem>
+          {/* <NavItem>
             <StyledLink to={'/search-users'}>BUSCAR USUÁRIOS</StyledLink>
-          </NavItem>
+          </NavItem> */}
         </NavList>
       </nav>
     </HeaderContainer>

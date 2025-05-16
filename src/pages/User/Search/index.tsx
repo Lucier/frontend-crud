@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import type IUsers from '../../interfaces/IUsers'
+import type IUsers from '../../../interfaces/IUsers'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { Container, Content, TableContainer } from './styles'
+import { FiEdit, FiTrash2 } from 'react-icons/fi'
 
 function Home() {
   const [users, setUsers] = useState<IUsers[]>([])
@@ -52,36 +54,44 @@ function Home() {
 
   return (
     <>
-      <div>
-        <h1>USUÁRIOS CADASTRADOS</h1>
-        <input
-          type="text"
-          placeholder="Buscar por e-mail"
-          value={searchQuery}
-          onChange={handleSearch}
-        />
-        <table>
-          <thead>
-            <th>Nome</th>
-            <th>Email</th>
-            <th></th>
-          </thead>
-          <tbody>
-            {filteredUsers.map((u: IUsers) => {
-              return (
-                <tr key={u.id}>
-                  <td>{u.name}</td>
-                  <td>{u.email}</td>
-                  <td>
-                    <Link to={`/edit-user/${u.id}`}>EDITAR</Link>
-                    <button onClick={() => deleteUser(u.id)}>EXCLUIR</button>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
+      <Content>
+        <h1>BUSCAR USUÁRIOS</h1>
+        <Container>
+          <input
+            type="text"
+            placeholder="Buscar por e-mail"
+            value={searchQuery}
+            onChange={handleSearch}
+          />
+          <TableContainer>
+            <table>
+              <thead>
+                <th>Nome</th>
+                <th>Email</th>
+                <th></th>
+              </thead>
+              <tbody>
+                {filteredUsers.map((u: IUsers) => {
+                  return (
+                    <tr key={u.id}>
+                      <td>{u.name}</td>
+                      <td>{u.email}</td>
+                      <td>
+                        <Link to={`/edit-user/${u.id}`}>
+                          <FiEdit size={30} />
+                        </Link>
+                        <button onClick={() => deleteUser(u.id)}>
+                          <FiTrash2 size={30} />
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </TableContainer>
+        </Container>
+      </Content>
     </>
   )
 }
