@@ -39,6 +39,11 @@ export const Content = styled.div`
     overflow: hidden;
 
     margin-top: 40px;
+    margin: 1rem;
+  }
+
+  h2 {
+    display: flex;
   }
 `
 
